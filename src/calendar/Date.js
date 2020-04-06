@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import {
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import type Moment from 'moment';
 
@@ -66,8 +67,10 @@ export default class Date extends PureComponent {
         onLayout={this.onLayout}
         onPress={this.onPress}
       >
+        <View style={styles.box}>
         <Text style={this.getDayStyle()}>{date.format('ddd').toUpperCase()}</Text>
         <Text style={this.getDateStyle()}>{date.format('DD')}</Text>
+        </View>
       </TouchableOpacity>
     );
   }
@@ -80,25 +83,51 @@ const styles = {
     borderBottomWidth: 2,
     paddingHorizontal: 15,
     paddingVertical: 10,
+    // width:'20%',
+    // height:'20%'
+    // width:50
+    // width:75,
+    // height:125
   },
   containerActive: {
-    borderBottomColor: '#FFFFFF',
+    borderBottomColor: '#93A057',
   },
   day: {
-    fontSize: 12,
+    fontSize: 11,
+    marginBottom:3
   },
   date: {
-    fontSize: 22,
+    fontSize: 18,
+    backgroundColor:'#fff',
+    color:'#93A057',
+    borderRadius:30,
+    //  paddingHorizontal:1,
+    // paddingVertical:4,
+    marginTop:2,
+    // marginBottom:2
     // backgroundColor:'pink',
   },
   text: {
-    // borderRadius:20,
+   
     // padding:5,
-    backgroundColor:'pink',
+  // backgroundColor:'#fff',
     color: 'rgba(255, 255, 255, 0.5)',
     textAlign: 'center',
+    paddingVertical:2
   },
   textActive: {
-    color: '#FFFFFF',
+    // color: '#93A057',
   },
+  box:{
+    backgroundColor:'#93A057',
+     paddingHorizontal:8,
+    // marginVertical:10,
+    paddingVertical:8,
+     borderRadius:30,
+    //  height:"100%",
+     width:45,
+    //  height:'50%',
+    //  height:70
+    //  width:"100%"
+  }
 };

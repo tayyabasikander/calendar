@@ -55,9 +55,9 @@ export default class Calendar extends PureComponent {
 
   static defaultProps = {
     // Show 5 days before the current day
-    showDaysBeforeCurrent: 360,
+    showDaysBeforeCurrent: 5 ,
     // And after
-    showDaysAfterCurrent: 5,
+    showDaysAfterCurrent: 10,
   };
 
   _scrollView;
@@ -284,7 +284,8 @@ export default class Calendar extends PureComponent {
   };
 
   onScroll = (event: { nativeEvent: { contentOffset: { x: number, y: number } } }) => {
-    const { nativeEvent: { contentOffset: { x } } } = event;
+    // console.log("x is", x )
+    const { nativeEvent: { contentOffset: { x }} } = event;
     this.setState({ scrollPositionX: x }, this.updateVisibleMonthAndYear);
   };
 
@@ -297,9 +298,9 @@ export default class Calendar extends PureComponent {
 
     return (
       <View>
-        <Text style={styles.visibleMonthAndYear}>
+        {/* <Text style={styles.visibleMonthAndYear}>
           {visibleMonthAndYear}
-        </Text>
+        </Text> */}
         <ScrollView
           ref={scrollView => { this._scrollView = scrollView; }}
           horizontal={true}                         // Enable horizontal scrolling
@@ -323,7 +324,8 @@ export default class Calendar extends PureComponent {
 
 const styles = StyleSheet.create({
   visibleMonthAndYear: {
-    color: 'rgba(255, 255, 255, 0.5)',
+    // color: 'rgba(255, 255, 255, 0.5)',
+    color:'#93A057',
     paddingHorizontal: 15,
     textAlign: 'left',
   },
